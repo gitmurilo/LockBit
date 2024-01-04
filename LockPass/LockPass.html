@@ -34,7 +34,10 @@
                 else if(check===''){
                     alert("Insira algum valor!");
                 }
-                else{
+                else if(charactersMeter<12 && charactersMeter>=8 && specialChar && numbers && Uppercase && Lowercase){
+                    alert("Você tem uma senha forte!");
+                }
+                else if(charactersMeter<8){
                     alert("Você tem uma senha fraca!");
                 }
             }
