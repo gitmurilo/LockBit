@@ -8,22 +8,34 @@
         <h1>Lock Pass, a password checker!</h1>
         <form>
             <input type="password" id="passwordCheck" placeholder="Insert your password" > 
-            <input type="button"  value="Verificar" onclick="PasswordVerify()">
+            <input type="submit"  value="Verificar" onclick="PasswordVerify()">
         </form>
-
+ 
         <script>
             function PasswordVerify(){
-            var check = document.getElementById('passwordCheck').value;
-            var charactersMeter = check.length;
-            var regex = /[!@#$%¨&*()_+\-=[\]{};':"\\|,.<>\/?]+/;
-            var specialChar = regex.test(check); 
 
+            //Variáveis
+            var check = document.getElementById('passwordCheck').value; //recebe conteúdo do campo password
+            var charactersMeter = check.length; //Verifica  quantidade de caracteres
+            var regexSpecial = /[!@#$%¨&*()_+\-=[\]{};':"\\|,.<>\/?]+/; //Salva símbolos especiais na variável regex
+            var specialChar = regexSpecial.test(check); //Verifica se foram inseridos caracteres especiais no campo password
 
-                if(charactersMeter>=8 && specialChar){
-                    alert("Você tem uma senha forte");
+            var regexNumbers = /\d+/; //Salva números de 0-9 na variável 
+            var numbers = regexNumbers.test(check); //Verifica se foram inseridos números no campo password
+         
+            var regexUppercase = /[A-Z]+/;
+            var regexLowercase = /[a-z]+/;
+            var Uppercase=regexUppercase.test(check);
+            var Lowercase = regexLowercase.test(check);
+                
+                if(charactersMeter>=12 && specialChar && numbers && Uppercase && Lowercase){
+                    alert("Senha muito forte!");
+                }
+                else if(check===''){
+                    alert("Insira algum valor!");
                 }
                 else{
-                    alert("Você tem uma senha fraca");
+                    alert("Você tem uma senha fraca!");
                 }
             }
         </script>
