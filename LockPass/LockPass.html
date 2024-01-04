@@ -13,12 +13,17 @@
 
         <script>
             function PasswordVerify(){
-            var check = document.getElementById('passwordCheck').value
-                if(check>=){
-                    alert("Você tem uma senha forte")
+            var check = document.getElementById('passwordCheck').value;
+            var charactersMeter = check.length;
+            var regex = /[!@#$%¨&*()_+\-=[\]{};':"\\|,.<>\/?]+/;
+            var specialChar = regex.test(check); 
+
+
+                if(charactersMeter>=8 && specialChar){
+                    alert("Você tem uma senha forte");
                 }
                 else{
-                    alert("Você tem uma senha fraca")
+                    alert("Você tem uma senha fraca");
                 }
             }
         </script>
