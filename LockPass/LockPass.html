@@ -7,8 +7,20 @@
     <body>
         <h1>Lock Pass, a password checker!</h1>
         <form>
-            <input type="password" title="Password" placeholder="Insert your password" > 
-            <input type="button"  value="Verificar">
+            <input type="password" id="passwordCheck" placeholder="Insert your password" > 
+            <input type="button"  value="Verificar" onclick="PasswordVerify()">
         </form>
+
+        <script>
+            function PasswordVerify(){
+            var check = document.getElementById('passwordCheck').value
+                if(check>=){
+                    alert("Você tem uma senha forte")
+                }
+                else{
+                    alert("Você tem uma senha fraca")
+                }
+            }
+        </script>
     </body>
 </html>
